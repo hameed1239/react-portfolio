@@ -6,10 +6,10 @@ main {
 }
 :root {
   --primary: #8c54ff;
-  --secondary: #F3A847;
+  --secondary: #D1AC00;
   --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #000000;
+  --light: #FAF4D3;
+  --dark: #0C1618;
   --darker: #111111;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);

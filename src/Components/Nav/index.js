@@ -1,8 +1,7 @@
-import React from "react";
 
 
-function Nav() {
-    
+function Nav(props) {
+    const { pages, currentPage, setCurrentPage } = props;
 
     return (
         <header className="flex-row px-1 space-between">
@@ -12,18 +11,15 @@ function Nav() {
             </h1>
             <nav className="flex-row ">
                 <ul className="flex-row">
-                    <li className="mx-2">
-                        <a href="#about">About me</a>
-                    </li>
-                    <li className="mx-2">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li className="mx-2">
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li className="mx-2">
-                        <a href="#resume">Resume</a>
-                    </li>
+                    {pages.map(page => {
+                        return (
+                            <li className='mx-2' key={page.id}>
+                                <a href={`#${page.id}`} className={`${currentPage.id === page.id && 'navActive'} `}  onClick={() => { setCurrentPage(page) }}>{page.name}</a>
+                            </li>
+                        )
+                        
+                    })}
+
                 </ul>
             </nav>
         </header>
