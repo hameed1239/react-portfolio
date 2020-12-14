@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './App.css';
-import Nav from './Components/Nav'
+import Nav from './Components/Nav';
+import About from './Components/About';
 
 
 function App() {
@@ -31,6 +32,13 @@ function App() {
         currentPage={currentPage}
         setCurrentPage = {setCurrentPage}
       />
+      <main>
+        {currentPage.id === 'about'? (<About />)
+         : currentPage.id === 'portfolio' ? 'value2'
+         : currentPage.id === 'contact' ? 'value3'
+         : 'value4'}
+      </main>
+      
     </div>
   );
 }
