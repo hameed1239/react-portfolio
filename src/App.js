@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import Nav from './Components/Nav';
 import About from './Components/About';
+import Portfolio from "./Components/Portfolio"
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
       />
       <main>
         {currentPage.id === 'about' ? (<About pages={pages} setCurrentPage={setCurrentPage}/>)
-         : currentPage.id === 'portfolio' ? 'value2'
+         : currentPage.id === 'portfolio' ? (<Portfolio />)
          : currentPage.id === 'contact' ? 'value3'
          : 'value4'}
       </main>
