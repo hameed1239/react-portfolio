@@ -353,6 +353,11 @@ a {
   margin-top: 8%;
 }
 
+.link:hover {
+  background-color: var(--secondary);
+  cursor: pointer;
+}
+
 #display-picture {
   border-radius: 50%;
   height: auto;

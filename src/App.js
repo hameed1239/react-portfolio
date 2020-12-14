@@ -33,7 +33,7 @@ function App() {
         setCurrentPage = {setCurrentPage}
       />
       <main>
-        {currentPage.id === 'about'? (<About />)
+        {currentPage.id === 'about' ? (<About pages={pages} setCurrentPage={setCurrentPage}/>)
          : currentPage.id === 'portfolio' ? 'value2'
          : currentPage.id === 'contact' ? 'value3'
          : 'value4'}
