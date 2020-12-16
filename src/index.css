@@ -1,8 +1,38 @@
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
 main {
 	margin: 0 auto;
 	max-width: 90%;
   padding: 20px 30px;
+  text-align: center;
+  height: max-content;
 }
 :root {
   --primary: #8c54ff;
@@ -36,7 +66,7 @@ body {
   letter-spacing: .1em;
   background: var(--dark);
   color: var(--light);
-  font-family: 'Poiret One', cursive;
+  
 
 }
 
@@ -81,8 +111,8 @@ p {
   margin-top: 0;
 }
 
-a {
-  color: var(--tertiary);
+a, p a {
+  color: var(--secondary);
   text-decoration: none;
   font-weight: bold;
 }
@@ -91,20 +121,16 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
-  /* background: var(--dark); */
-  /* position: relative; */
-  /* background-image: url("./Assets/soccerBanner.jpg"); */
-  /* background-size:100% 100%; */
-  /* background-repeat: no-repeat; */
-  /* background-position: center top; */
-  min-height: 75px;
+header {animation: 3s ease-out 0s 1 slideInBounce;
+  font-family: 'Poiret One', cursive;
+  min-height: 50px;
   padding-bottom: 0px;
   align-items: flex-end;
   background-color: #004643;
 }
 
 header a {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
   color: var(--light);
 }
 
@@ -162,19 +188,27 @@ ul {
 }
 
 li {
+  /* animation: 5s ease-out 0s 1 slideInFromLeft; */
+  
   list-style: none;
 }
 
 nav {
-  margin-right: 0px;
+  /* animation: 3s ease-out 0s 1 slideInFromBottom; */
 }
 
 nav a:hover {
   text-decoration: none;
+  
 }
 
 nav  li {
   cursor: pointer;
+}
+
+nav li:hover {
+  animation: shakeY; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 6s;
 }
 
 textarea {
@@ -188,8 +222,8 @@ textarea {
   margin-bottom: 0px;
 }
 .container {
-  width: 100%;
-  max-width: 1200px;
+  width: 80%;
+  /* max-width: 1200px; */
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -319,8 +353,8 @@ textarea {
 
 .card-text {
   margin: 10px;
-  font-size: 0.7vw;
-  text-align: left;
+  font-size: 1.2vw;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -356,8 +390,13 @@ textarea {
 	margin-bottom: 25px;
 }
 
+.footer {
+  position: relative;
+  bottom: 0;
+}
+
 button {
-	background: var(--primary);
+	background: var(--secondary);
 	border: 0;
 	border-radius: 5px;
 	color: #fff;
@@ -386,6 +425,7 @@ a {
   text-align: left;
 }
 
+
 .navActive {
   color: var(--secondary);
 }
@@ -408,6 +448,9 @@ a {
 
 .clip-polygon {
   clip-path: polygon(25% 0%, 75% 0%,100% 50%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 4s;
+  border: 0px;
 }
 
 .focus {
@@ -424,9 +467,42 @@ a {
   height: 50px;
   width: 50px;
   text-align: center;
+
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 0.5s infinite;
 }
 
-#display-picture {
+.story {
+  animation: fadeInBottomLeft; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 4s;
+}
+
+.resume {
+  background-color: var(--light);
+  /* width: fit-content; */
+  margin: 0px;
+  padding: 0px;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+#display-picture {  animation: 3s ease-out 0s 1 slideInFromBottom;
   border-radius: 50%;
   height: auto;
   text-align: center;
@@ -437,5 +513,8 @@ a {
   padding-left: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
+  animation: zoomInDown; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 4s;
   
 }
+

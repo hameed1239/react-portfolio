@@ -1,5 +1,4 @@
-import React, { useState } from 'react'; 
-import PortfolioInfo from "../PortfolioInfo";
+import React, { useState } from 'react';
 
 function Portfolio() {
     const projects = [
@@ -41,7 +40,6 @@ function Portfolio() {
         description: "",
         isOpen: false
     });
-    const [infoOpen, setInfoOpen] = useState(false);
     const toggleInfoOpen=(project, i) => {
         setSelectedProject({ ...project });
         selectedProject.isOpen = !selectedProject.isOpen;
@@ -52,11 +50,24 @@ function Portfolio() {
             
             {projects.map((project, i) => {
                 return (
-                   <div className = "card flex-row flex-a-c" onClick={() => { toggleInfoOpen(project) }} key = { project.name } >
-                        {!selectedProject.isOpen && selectedProject.name ===project.name ?(<PortfolioInfo selectedProject = {selectedProject} portfolioImage = {toggleInfoOpen} />):
+                    <div className="card" key = { project.name }>
+                    <div className="card-inner">
+                   <div className = "card-front flex-row flex-a-c" onClick={() => { toggleInfoOpen(project) }}  >
+                        
                     <img className="img-thumbnail" src={require(`../../assets/projects/${i}.JPG`).default}  alt={`project No. ${i}`} />
-                }
-                    </div>)
+                {/* } */}
+                    </div>
+                            <div className="card-back flex-row flex-a-c">
+            <h2 className="align-center display-block">{project.name}</h2>
+            <div className="container flex-row space-between">
+                <a href={project.appURL} rel="noreferrer" target="_blank"><img className="link-icon" src={require(`../../assets/app image.jpg`).default} alt="Live Application" /></a>
+                <a href={project.repo} rel="noreferrer" target="_blank"><img className="link-icon" src={require(`../../assets/github.png`).default} alt="Repository" /></a>
+            </div>
+            <p className="card-text align-center">{project.description}</p>
+                        </div>
+                        </div>
+                        </div>
+                )
                 
                 
             })}

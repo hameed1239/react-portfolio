@@ -1,7 +1,10 @@
-
+import { useEffect } from "react";
 
 function Nav(props) {
     const { pages, currentPage, setCurrentPage } = props;
+    useEffect(() => {
+        document.title = `${currentPage.name}`;
+    });
 
     return (
         <header className="flex-row px-1 space-between">

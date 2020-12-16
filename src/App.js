@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import './App.css';
 import Nav from './Components/Nav';
 import About from './Components/About';
-import Portfolio from "./Components/Portfolio"
+import Portfolio from "./Components/Portfolio";
+import Contact from "./Components/Contact";
+import Resume from "./Components/Resume";
+import Footer from "./Components/Footer"
 
 
 function App() {
@@ -24,7 +27,8 @@ function App() {
       id: 'resume'
     },
   ])
-  const [currentPage, setCurrentPage] = useState(pages[0])   
+  const [currentPage, setCurrentPage] = useState(pages[0])  
+  
 
   return (
     <div>
@@ -36,9 +40,10 @@ function App() {
       <main>
         {currentPage.id === 'about' ? (<About pages={pages} setCurrentPage={setCurrentPage}/>)
          : currentPage.id === 'portfolio' ? (<Portfolio />)
-         : currentPage.id === 'contact' ? 'value3'
-         : 'value4'}
+         : currentPage.id === 'contact' ? (<Contact />)
+         : <Resume />}
       </main>
+      <footer><Footer /></footer>
       
     </div>
   );
