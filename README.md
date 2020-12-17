@@ -4,7 +4,7 @@
 
 ## Description
 
-A single page application built with react that showcase my amazing projects.
+A single page application built with react that showcase my portfolio.
 
 ## Table of Contents
 
@@ -46,7 +46,7 @@ You can contribute to this project by creating issues on this repository
 
 ## Test
 
-Link to app: [Photo port](https://hameed1239.github.io/react-portfolio/)
+Link to app: [React Portfolio](https://hameed1239.github.io/react-portfolio/)
 
 Screenshots:
 ![Screenshot](/public/assets/images/Capture1.PNG)

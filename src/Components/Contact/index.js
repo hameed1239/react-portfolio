@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { validateEmail } from '../../utils/helpers';
 import emailjs from "emailjs-com";
 require('dotenv').config();
-emailjs.init(process.env.REACT_APP_UserID );
 
 
 function Contact() {
-console.log(process.env.REACT_APP_UserID);
+    const { REACT_APP_UserID } = process.env;
+    console.log(REACT_APP_UserID);
+    emailjs.init(REACT_APP_UserID);
+
     const computedName = "name"
     const [formState, setFormState] = useState({ [computedName]: '', email: '', message: '' });
     const { name, email, message } = formState;
@@ -14,14 +16,20 @@ console.log(process.env.REACT_APP_UserID);
     const [emailStatus, setEmailStatus] = useState('');
     function handleChange(e) {
         if (e.target.name === 'email') {
-            const isValid = (validateEmail(e.target.value));
-            console.log(isValid);
-            // isValid conditional statement
-            if (!isValid) {
-                setErrorMessage('Your email is invalid.');
-            } else {
-                setErrorMessage('');
+            if (e.target.value.length < 1) {
+                setErrorMessage('Email is required.');
             }
+            else {
+                const isValid = (validateEmail(e.target.value));
+                console.log(isValid);
+                // isValid conditional statement
+                if (!isValid) {
+                    setErrorMessage('Your email is invalid.');
+                } else {
+                    setErrorMessage('');
+                }
+            }
+
         }
         else if (e.target.name === 'message') {
             if (e.target.value.length < 1) {
@@ -53,10 +61,10 @@ console.log(process.env.REACT_APP_UserID);
             "from_email": email
         }
         emailjs.send('service_zdl7opb', 'template_8pehn3p', templateParams)
-            .then((response)=> {
+            .then((response) => {
                 setEmailStatus("Thanks for reaching out. I would be intouch with you shortly")
                 console.log('SUCCESS!', response.status, response.text);
-            }, (err)=> {
+            }, (err) => {
                 setEmailStatus("Oh oh! looks like those squirrels chewed on the wires again. Please try again")
                 console.log('FAILED...', err);
             });
@@ -71,7 +79,7 @@ console.log(process.env.REACT_APP_UserID);
             <form id="contact-form" onSubmit={handleSubmit}>
                 <div className="align-left">
                     <label htmlFor="name" className="display-block">Name:</label>
-                    <input type="text" defaultValue={name} onBlur={handleChange} name="name" minLength="1" required/>
+                    <input type="text" defaultValue={name} onBlur={handleChange} name="name" minLength="1" required />
                 </div>
                 <div className="align-left">
                     <label htmlFor="email" className="display-block">Email address:</label>
@@ -79,7 +87,7 @@ console.log(process.env.REACT_APP_UserID);
                 </div>
                 <div className="align-left">
                     <label htmlFor="message" className="display-block">Message:</label>
-                    <textarea name="message" defaultValue={message} onChange={handleChange} rows="5" required minLength="1" />
+                    <textarea name="message" defaultValue={message} onBlur={handleChange} rows="5" required minLength="1" />
                 </div>
                 {errorMessage && (
                     <div>
