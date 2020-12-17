@@ -63,7 +63,7 @@ function Portfolio() {
                                 <img className="img-thumbnail" src={require(`../../assets/projects/${i}.JPG`).default} alt={`project No. ${i}`} />
                             </div>
                             <div className="card-back flex-row flex-a-c">
-                                <h2 className="align-center display-block">{project.name}</h2>
+                                <h2 className=" card-text-title align-center display-block">{project.name}</h2>
                                 <div className="container flex-row space-between">
                                     <a href={project.appURL} rel="noreferrer" target="_blank"><img className="link-icon" src={require(`../../assets/app image.jpg`).default} alt="Live Application" /></a>
                                     <a href={project.repo} rel="noreferrer" target="_blank"><img className="link-icon" src={require(`../../assets/github.png`).default} alt="Repository" /></a>

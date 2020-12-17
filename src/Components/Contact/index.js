@@ -6,9 +6,7 @@ require('dotenv').config();
 
 function Contact() {
     const { REACT_APP_UserID } = process.env;
-    console.log(REACT_APP_UserID);
     emailjs.init(REACT_APP_UserID);
-
     const computedName = "name"
     const [formState, setFormState] = useState({ [computedName]: '', email: '', message: '' });
     const { name, email, message } = formState;

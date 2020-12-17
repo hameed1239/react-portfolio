@@ -348,10 +348,17 @@ textarea {
 }
 
 .card-text {
+  position: relative;
   margin: 10px;
   font-size: 1.0vw;
   text-align: center;
   cursor: pointer;
+}
+.card-text-title {
+  position: relative;
+  margin: 10px;
+  font-size: 2.0vw;
+  text-align: center;
 }
 
 .img-thumbnail {
